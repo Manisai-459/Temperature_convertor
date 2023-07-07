@@ -1,0 +1,140 @@
+*{
+  margin: 0;
+  padding: 0;
+
+}
+body{
+  background-color: whitesmoke;
+  font-family: 'Labrada', serif;
+}
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+flex-direction: column;
+}
+.he{
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.card{
+  background-color:white;
+  width: 450px;
+  height: 300px;
+  display: flex;
+  border-radius: 9px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+input[type="number"]{
+width: 130px;
+padding: 10px;
+margin-bottom: 4px;
+border: 1px solid #ccc;
+box-shadow: none;
+border: none;
+}
+input[type="number"]:focus {
+  outline: none;
+  border-bottom: 2px solid black;
+}
+.temperature-select {
+  border: none;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #f1f1f1;
+  color: #333;
+  border-radius: 4px;
+}
+.temperature-select:focus{
+  outline: none;
+}
+.temperature-select option {
+  padding: 4px;
+}
+input[type="submit"] {
+  background-color: #00a0d2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  transition: scale 0.2 ease;
+  border-radius: 5px;
+}
+input[type="submit"]:hover{
+  scale: 1.05;
+}
+input[type="submit"]:active{
+  scale: 0.95;
+} 
+.res{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content:center;
+  align-items:center; 
+}
+.re{
+  background-color: #ccc;
+  display: flex;
+  width: 60%;
+  border-radius: 10px;
+  height: 30px;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center; 
+}
+.sc{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.sb{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media(max-width:530px){
+  .card{
+      width: 300px;
+      height: 380px;
+  }
+  input[type="number"]{
+      width: 105px;
+      padding: 8px;
+      margin-bottom: 3px;
+      margin-left: 10px;
+    }
+    .temperature-select {
+      border: none;
+      padding: 5px;
+      font-size: 12px;
+    }
+    .he{
+      font-size: 1.5rem;
+    }
+    input[type="submit"]{
+      width: 80%;
+    }
+    .sc{
+      flex-direction: column;
+    }
+    .sc label{
+     margin-bottom: 10px;
+    }
+}

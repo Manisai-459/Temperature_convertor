@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temprature Convertor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Labrada:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <div id="video-background">
+        <video autoplay loop muted playsinline id="bg-video">
+          <source src="ec2b8ef5-7afe-4314-9a07-5eb9520adfd2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </header>
+    <main>
+    <div class="container">
+    <div class="card">
+        <h3 class="he"> Temprature  <i class="fa-solid fa-temperature-high"></i> Convertor</h3>
+        <form id="temperatureForm" class="form-container">
+            <div class="in" style="margin-bottom: 10px;">
+                <input type="number" step="any" id="floatInput" name="Input" placeholder="Enter Temprature"required>
+                <select class="temperature-select" name="type" >
+                    <option value="C"><span>&#8451;</span> </option>
+                    <option value="F"><span>&#8457;</span></option>
+                    <option value="K"><span style="font-family: 'Arial Unicode MS', sans-serif;">&#8490;</span></option>
+                </select>
+            </div>
+            <div  class="sc">
+                <label>Select Convertion to Type </label>
+                <select name="type2" class="temperature-select">
+                    <option value="C1">Celsius ( <span>&#8451;</span> ) </option>
+                    <option value="F1">Fahrenheit ( <span >&#8457;</span> )</option>
+                    <option value="K1">Kelvin ( <span>&#8490;</span> )</option>
+                </select>
+               
+            </div>
+            <div class="sb">
+                <input type="submit" value="Convert" name="convert" style="margin-bottom: 20px;">
+            </div>
+            <div class="res">
+                <div id="resultContainer" class="re">result</div>
+            </div>
+        </form>
+       </div>
+      </div>
+<script>
+document.getElementById('temperatureForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get form values
+  var input = parseFloat(document.getElementById('floatInput').value);
+  var type = document.getElementsByName('type')[0].value;
+  var type2 = document.getElementsByName('type2')[0].value;
+  // Perform temperature conversion based on selected type
+  var convertedValue;
+  if (type === 'C' && type2 === 'F1') {
+    convertedValue = (input * 9/5 + 32 ).toFixed(2) + ' °F';
+  } else if (type === 'C'  && type2 === 'K1' ) {
+    convertedValue = (input + 273.15 ).toFixed(2) + ' K'; // Celsius to kelvin
+  } else if (type === 'F' && type2 === 'C1') {
+    convertedValue = ((input - 32) * (5/9)).toFixed(2) + ' °C'; // Kelvin to Celsius
+  }
+  else if (type === 'F' && type2 === 'K1') {
+    convertedValue = (((input - 32)* (5/9)) + 273.15).toFixed(2) + ' K'; // Kelvin to Celsius
+  }
+  else if (type === 'K' && type2 === 'C1') {
+    convertedValue = (input - 273.15).toFixed(2) + ' °C'; // Kelvin to Celsius
+  }
+  else if (type === 'K' && type2 === 'F1') {
+    convertedValue = (((input - 273.15) * (9/5)) + 32).toFixed(2) + ' °F'; // Kelvin to Celsius
+  }
+else
+convertedValue = "change scale";
+  // Display the result
+var resultContainer = document.getElementById('resultContainer');
+  resultContainer.textContent = convertedValue;
+});
+</script>
+    </main>
+    <footer>
+       <p style="color: white;text-align: center;margin-bottom: 30px;"> &copy;Mani Sai, All Rights Reserved </p> 
+    </footer>
+</body>
+</html>
